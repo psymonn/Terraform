@@ -1,0 +1,7 @@
+
+Caviar using Terraform Module
+*count doesn't work with module
+e.g you can't say run the same module 3 times using count
+but you can list it out 3 times instead.
+
+

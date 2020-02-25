@@ -1,0 +1,36 @@
+IaC = infrastructure as code
+
+declarative or imperative
+
+Imprative approach:
+get shell
+get beans
+get cheese
+get lettuce
+get salsa
+
+put beans in shell
+put cheese on beans
+put lettuce on cheese
+put salsa on lettuce
+
+
+Declarative:
+#Make me a taco
+
+food taco "bean-taco" {
+   ingredients = [
+       "beans", "cheese", "lettuce", "salsa"
+   ]
+
+
+}
+
+Idempotent & consistent
+
+idempotnent - if you haven't change any configuration of your code and you apply it again and again, nothing will change.
+Terraform use Idempotnent
+Terraform use push (not pull)
+
+
+baked into the configuration
