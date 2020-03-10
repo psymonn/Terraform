@@ -1,0 +1,24 @@
+Unfortunately, Terraform needs a template to have a UUID before it can clone a VM from a template, and this doesn't seem to assign a UUID. So this doesn't seem to work for our particular use case. – howdoievenexist Jun 6 '18 at 22:55
+If you need to register it (well, in fact convert it to VMTX template and register that template as such), you need to look into using vmware govc cli. It should be something like govc import.ova (without JSON config), then do a govc snapshot.create clone-root and finally do a govc vm.markastemplate. – Peter Zhabin Jun 6 '18 at 23:32
+1
+I just went ahead and made a PR to govc that allows me to mark VMs as templates on upload. – howdoievenexist Jun 11 '18 at 23:03
+
+
+Importing Template to vCentre OPTIONS:
+1. use vCentre Content Library (can import ova/ovf file)
+2. 
+
+
+https://github.com/terraform-providers/terraform-provider-vsphere/issues/74
+
+https://github.com/vmware/govmomi/blob/master/govc/USAGE.md
+ https://www.youtube.com/watch?v=uNbHy394-SA
+https://www.virtuallyghetto.com/2016/04/slick-way-of-deploying-ovfova-directly-to-esxi-vcenter-server-using-govc-cli.html
+https://cloudmaniac.net/ova-ovf-deployment-using-govc-cli/
+https://serverfault.com/questions/915526/uploading-an-ova-to-vsphere-as-template-not-vm
+
+https://blog.linoproject.net/terraforming-my-vsphere-lab-part-1/
+
+
+unrelated:
+https://live8wire.wordpress.com/network/vlan-trunking-on-virtual-switch-for-vmware-esxi/
